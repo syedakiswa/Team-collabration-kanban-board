@@ -1,4 +1,10 @@
-import Workspace from "@/components/Workspace";
+import React from "react";
+import Workspace from '../../components/Workspace'
+
 export default function Page() {
-  return <Workspace />;
+    return (
+        <>
+         <Workspace/>
+        </>
+    )
 }

@@ -1,15 +1,27 @@
-import React from 'react'
+'use client'
+import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ user, onNavigate }) {
   return (
-    <nav className="flex gap-2">
-      <div className="logo flex items-center gap-4">
-        <img className="w-20 rounded-full bg-white p-0" src="/logo.png" alt="Logo" />
-
-        <span className="text-3xl font-bold bg-gradient-to-r from-[#cdb9eb] to-[#894aff] bg-clip-text text-transparent">
-          Team Collaboration Kanban Board
-        </span>
+    <nav className="flex items-center justify-between pb-6 border-b border-white/10">
+      <div className="text-2xl font-bold">TaskFlow</div>
+      <div className="flex items-center gap-6">
+        <button 
+          onClick={() => onNavigate('workspace')} 
+          className="hover:text-purple-400 transition"
+        >
+          Workspaces
+        </button>
+        <button 
+          onClick={() => onNavigate('profile')} 
+          className="flex items-center gap-2 hover:text-purple-400 transition"
+        >
+          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+            {user?.name?.[0]?.toUpperCase() || 'U'}
+          </div>
+          Profile
+        </button>
       </div>
     </nav>
-  )
+  );
 }
